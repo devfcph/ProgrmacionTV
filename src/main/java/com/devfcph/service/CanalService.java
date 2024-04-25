@@ -15,7 +15,11 @@ public class CanalService {
     private CanalRepository canalRepository;
 
     public Canal crearCanal(Canal canal) {
-        return  new Canal();
+        try {
+            return canalRepository.save(canal);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     public Canal modificarCanal(Integer id, Canal canal) {
